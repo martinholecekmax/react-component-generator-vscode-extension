@@ -14,10 +14,25 @@
   "contributes": {
     "commands": [
       {
-        "command": "react-component-generator.helloWorld",
-        "title": "Hello World"
+        "command": "react-component-generator.createReactComponent",
+        "title": "React Component Generator"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "react-component-generator.createReactComponent",
+          "when": "false"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "react-component-generator.createReactComponent",
+          "when": "explorerResourceIsFolder",
+          "group": "create-react-component"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
@@ -39,3 +54,4 @@
     "handlebars": "^4.7.7"
   }
 }
+

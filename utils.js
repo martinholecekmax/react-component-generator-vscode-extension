@@ -2,19 +2,55 @@ const handlebars = require('handlebars');
 const fs = require('fs');
 const path = require('path');
 
-function generateFiles({ componentFolderPath, componentName, kebabCaseName }) {
-  fs.mkdirSync(componentFolderPath);
-  fs.writeFileSync(
+const createFolder = (componentFolderPath, window) => {
+  try {
+    if (fs.existsSync(componentFolderPath)) {
+      window.showErrorMessage(
+        `Component ${componentFolderPath} already exists`
+      );
+    } else {
+      fs.mkdirSync(componentFolderPath);
+    }
+  } catch (error) {
+    window.showErrorMessage(
+      `Something went wrong creating ${componentFolderPath} folder`
+    );
+  }
+};
+
+const createFile = (path, content, window) => {
+  try {
+    if (fs.existsSync(path)) {
+      window.showErrorMessage(`File ${path} already exists`);
+    } else {
+      fs.writeFileSync(path, content);
+    }
+  } catch (error) {
+    window.showErrorMessage(`Something went wrong creating ${path} file`);
+  }
+};
+
+function generateFiles({
+  componentFolderPath,
+  componentName,
+  kebabCaseName,
+  window,
+}) {
+  createFolder(componentFolderPath, window);
+  createFile(
     path.join(componentFolderPath, `${kebabCaseName}.jsx`),
-    generateJsxCode({ componentName, kebabCaseName })
+    generateJsxCode({ componentName, kebabCaseName }),
+    window
   );
-  fs.writeFileSync(
+  createFile(
     path.join(componentFolderPath, `${kebabCaseName}.module.css`),
-    generateCssCode()
+    generateCssCode(),
+    window
   );
-  fs.writeFileSync(
+  createFile(
     path.join(componentFolderPath, 'index.js'),
-    `export { default as ${componentName} } from "./${kebabCaseName}";`
+    `export { default as ${componentName} } from "./${kebabCaseName}";`,
+    window
   );
 }
 
