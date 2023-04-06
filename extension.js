@@ -10,14 +10,11 @@ function activate(context) {
         let activeEditor = vscode.window.activeTextEditor;
         let activeFilePath = activeEditor
           ? activeEditor.document.uri.fsPath
-          : vscode.workspace.rootPath;
+          : vscode.workspace.workspaceFolders[0].uri.fsPath;
         let activeFolderUri = vscode.Uri.file(path.dirname(activeFilePath));
-        let activeFolder = vscode.workspace.getWorkspaceFolder(activeFolderUri);
-        if (!activeFolder) {
-          vscode.window.showWarningMessage('No workspace folder found.');
-          return;
-        }
-        let directoryPath = activeFolder.uri.fsPath;
+        console.log('activeFolderUri', activeFolderUri);
+        let directoryPath = activeFolderUri.fsPath;
+        console.log('directoryPath', directoryPath);
         vscode.window
           .showInputBox({ prompt: 'Enter component name' })
           .then(function (componentName) {
@@ -25,14 +22,21 @@ function activate(context) {
               .replace(/([a-z])([A-Z])/g, '$1-$2')
               .toLowerCase();
             let componentFolderPath = path.join(directoryPath, kebabCaseName);
-            generateFiles({
-              componentFolderPath,
-              componentName,
-              kebabCaseName,
-            });
-            // vscode.workspace.updateWorkspaceFolders(activeFolder.index, null, {
-            //   uri: vscode.Uri.file(componentFolderPath),
+            console.log('componentFolderPath', componentFolderPath);
+            // generateFiles({
+            //   componentFolderPath,
+            //   componentName,
+            //   kebabCaseName,
             // });
+            // vscode.workspace
+            //   .openTextDocument(
+            //     path.join(componentFolderPath, `${kebabCaseName}.jsx`)
+            //   )
+            //   .then((doc) => vscode.window.showTextDocument(doc));
+            // vscode.commands.executeCommand(
+            //   'revealInExplorer',
+            //   vscode.Uri.file(componentFolderPath)
+            // );
             vscode.window.showInformationMessage(
               `React component ${componentName} created.`
             );
