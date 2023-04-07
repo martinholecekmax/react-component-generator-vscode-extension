@@ -28,7 +28,7 @@
       "explorer/context": [
         {
           "command": "react-component-generator.createReactComponent",
-          "when": "explorerResourceIsFolder",
+          "when": "explorerResourceIsFolder  || resourceFilename != ''",
           "group": "create-react-component"
         }
       ]
