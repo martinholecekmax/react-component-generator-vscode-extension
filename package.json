@@ -1,8 +1,14 @@
 {
   "name": "react-component-generator",
-  "displayName": "react-component-generator",
+  "displayName": "React Component Generator",
   "description": "Create files for React component in selected directory.",
   "version": "0.0.1",
+  "author": {
+    "name": "Martin Holecek"
+  },
+  "publisher": "martinholecekmax",
+  "license": "MIT",
+  "icon": "assets/react-logo.png",
   "engines": {
     "vscode": "^1.77.0"
   },
