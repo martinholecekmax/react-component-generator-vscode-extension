@@ -9,6 +9,10 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinholecekmax/react-component-generator-vscode-extension"
+  },
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
@@ -54,4 +58,3 @@
     "handlebars": "^4.7.7"
   }
 }
-

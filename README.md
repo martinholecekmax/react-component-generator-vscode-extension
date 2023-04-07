@@ -2,11 +2,11 @@
 
 This extension allows you to generate React component files by clicking on the `React Component Generator` option in the context menu.
 
-![React Component Generator Context Menu](./assets/extension-context-menu.png)
+![React Component Generator Context Menu](https://raw.githubusercontent.com/martinholecekmax/react-component-generator-vscode-extension/main/assets/extension-context-menu.png)
 
 It will prompt you for the name of the component.
 
-![React Component Generator Prompt](./assets/extension-prompt.png)
+![React Component Generator Prompt](https://raw.githubusercontent.com/martinholecekmax/react-component-generator-vscode-extension/main/assets/extension-prompt.png)
 
 It will then create a folder with the name of the component and create three files inside it: `component-name.jsx`, `component-name.module.css`, and `index.js`. The `component-name.js` file will contain the component code, the `component-name.css` file will contain the component's styles, and the `index.js` file will contain the code to export the component.
 
