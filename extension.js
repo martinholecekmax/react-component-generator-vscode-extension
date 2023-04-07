@@ -19,7 +19,7 @@ function activate(context) {
 
         vscode.window
           .showInputBox({
-            prompt: `Create component in ${uri.path}`,
+            prompt: `Create component in ${directoryPath}`,
             placeHolder: 'MyComponent',
           })
           .then(function (input) {
@@ -69,4 +69,3 @@ module.exports = {
   activate,
   deactivate,
 };
-

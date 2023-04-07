@@ -1,65 +1,64 @@
-# react-component-generator README
+# React Component Generator
 
-This is the README for your extension "react-component-generator". After writing up a brief description, we recommend including the following sections.
+This extension allows you to generate React component files by clicking on the `React Component Generator` option in the context menu.
 
-## Features
+![React Component Generator Context Menu](./assets/extension-context-menu.png)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+It will prompt you for the name of the component.
 
-For example if there is an image subfolder under your extension project workspace:
+![React Component Generator Prompt](./assets/extension-prompt.png)
 
-\!\[feature X\]\(images/feature-x.png\)
+It will then create a folder with the name of the component and create three files inside it: `component-name.jsx`, `component-name.module.css`, and `index.js`. The `component-name.js` file will contain the component code, the `component-name.css` file will contain the component's styles, and the `index.js` file will contain the code to export the component.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Generated Files
 
-## Requirements
+Here is an example of what the generated files will look like:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```bash
+├── component-name
+│   ├── component-name.module.css
+│   ├── component-name.js
+│   └── index.js
+```
 
-## Extension Settings
+**Contents of `component-name.js`:**
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```jsx
+// component-name/component-name.jsx
+import React from 'react';
 
-For example:
+import * as styles from './component-name.module.css';
 
-This extension contributes the following settings:
+const ComponentName = () => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.title}>ComponentName</div>
+      <div className={styles.content}></div>
+    </div>
+  );
+};
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+export default ComponentName;
+```
 
-## Known Issues
+**Contents of `component-name.module.css`:**
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```css
+/* component-name/component-name.module.css */
+.container {
+}
 
-## Release Notes
+.title {
+}
 
-Users appreciate release notes as you update your extension.
+.content {
+}
+```
 
-### 1.0.0
+**Contents of `index.js`:**
 
-Initial release of ...
+```jsx
+// component-name/index.js
+export { default as ComponentName } from './component-name';
+```
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
