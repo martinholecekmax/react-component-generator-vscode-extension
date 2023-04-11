@@ -2,6 +2,10 @@ exports.getComponentName = (name) => {
   if (name && name.length > 0) {
     let componentName = name;
     // If contains spaces
+    if (name.indexOf('-') > -1) {
+      // Replace hyphens with spaces
+      name = name.replace(/-/g, ' ');
+    }
     if (name.indexOf(' ') > -1) {
       // Split by spaces
       let nameArray = name.split(' ');
