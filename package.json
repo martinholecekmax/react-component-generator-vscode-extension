@@ -26,6 +26,10 @@
       {
         "command": "react-component-generator.createReactComponent",
         "title": "React Component Generator"
+      },
+      {
+        "command": "react-component-generator.createReactComponentTs",
+        "title": "React Component Generator (TypeScript)"
       }
     ],
     "menus": {
@@ -38,7 +42,12 @@
       "explorer/context": [
         {
           "command": "react-component-generator.createReactComponent",
-          "when": "explorerResourceIsFolder  || resourceFilename != ''",
+          "when": "explorerResourceIsFolder || resourceFilename != ''",
+          "group": "create-react-component"
+        },
+        {
+          "command": "react-component-generator.createReactComponentTs",
+          "when": "explorerResourceIsFolder || resourceFilename != ''",
           "group": "create-react-component"
         }
       ]
